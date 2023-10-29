@@ -1,0 +1,18 @@
+package com.timesheet.management.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/statuses")
+public class StatusController {
+    @Autowired
+    private StatusService statusService;
+
+    // Get all statuses
+    @GetMapping
+    public List<Status> getAllStatuses() {
+        return statusService.getAllStatuses();
+    }
+}
+

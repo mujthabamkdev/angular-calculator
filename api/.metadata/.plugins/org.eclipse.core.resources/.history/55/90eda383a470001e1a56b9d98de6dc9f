@@ -1,0 +1,15 @@
+package com.timesheet.management.service;
+
+@Service
+public class TimesheetService {
+    @Autowired
+    private TimesheetRepository timesheetRepository;
+
+    public List<Timesheet> getAllTimesheets() {
+        return timesheetRepository.findAll();
+    }
+
+    public Timesheet createTimesheet(Timesheet timesheet) {
+        return timesheetRepository.save(timesheet);
+    }
+}

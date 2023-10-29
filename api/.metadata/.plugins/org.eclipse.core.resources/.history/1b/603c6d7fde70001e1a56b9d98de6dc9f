@@ -1,0 +1,15 @@
+package com.timesheet.management.controller;
+
+@RestController
+@RequestMapping("/statuses")
+public class StatusController {
+    @Autowired
+    private StatusService statusService;
+
+    // Get all statuses
+    @GetMapping
+    public List<Status> getAllStatuses() {
+        return statusService.getAllStatuses();
+    }
+}
+

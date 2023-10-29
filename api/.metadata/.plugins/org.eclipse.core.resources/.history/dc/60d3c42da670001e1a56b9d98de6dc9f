@@ -1,0 +1,13 @@
+package com.timesheet.management.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TimesheetRepository extends JpaRepository<Timesheet, Long> {
+    List<Timesheet> findAll();
+    List<Timesheet> findByStatus(Status status);
+    List<Timesheet> findByAssignedTo(User user);
+    List<Timesheet> findByFromDateBetween(Date startDate, Date endDate);
+    // Add other custom query methods as needed
+}

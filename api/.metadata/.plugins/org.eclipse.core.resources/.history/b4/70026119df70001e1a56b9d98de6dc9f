@@ -1,0 +1,12 @@
+package com.timesheet.management.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.timesheet.management.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
+    // Add other custom query methods as needed
+}

@@ -1,0 +1,42 @@
+package com.timesheet.management.service;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.timesheet.management.model.Status;
+import com.timesheet.management.model.Timesheet;
+import com.timesheet.management.model.User;
+import com.timesheet.management.repository.TimesheetRepository;
+
+@Service
+public class TimesheetService {
+    @Autowired
+    private TimesheetRepository timesheetRepository;
+
+    public List<Timesheet> getAllTimesheets() {
+        return timesheetRepository.findAll();
+    }
+
+    public Timesheet createTimesheet(Timesheet timesheet) {
+        return timesheetRepository.save(timesheet);
+    }
+
+    public List<Timesheet> getTimesheetsByStatus(Status status) {
+        return timesheetRepository.findByStatus(status);
+    }
+
+    public List<Timesheet> getTimesheetsByAssignedUser(User user) {
+        return timesheetRepository.findByAssignedTo(user);
+    }
+
+    public List<Timesheet> getTimesheetsBetweenDates(Date startDate, Date endDate) {
+        return timesheetRepository.findByFromDateBetween(startDate, endDate);
+    }
+    
+    public void deleteTimesheetById(Long timesheetId) {
+        timesheetRepository.deleteById(timesheetId);
+    }
+}
+

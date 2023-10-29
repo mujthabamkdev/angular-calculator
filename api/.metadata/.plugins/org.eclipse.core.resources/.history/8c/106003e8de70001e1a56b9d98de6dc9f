@@ -1,0 +1,14 @@
+package com.timesheet.management.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.timesheet.management.model.Status;
+
+@Repository
+public interface StatusRepository extends JpaRepository<Status, Long> {
+    Status findByName(String name);
+    // Add other custom query methods as needed
+}
+
+
